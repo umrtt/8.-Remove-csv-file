@@ -4,7 +4,7 @@ from pydantic import ( # type: ignore
     field_validator,
     Field)
 
-from customError import *
+from .customError import *
 
 from typing import List
 
@@ -30,7 +30,7 @@ class filePathValidation(BaseModel):
             raise FilePathNoExist('FolderNoExist',"Folder khong ton tai")
         csv_files = folder.rglob('*.csv')
         print(f'Tim thay: {len(list(csv_files))} csv files')
-        return csv_files
+        return folder
     #verify output path
     @field_validator("list_path")
     @classmethod
@@ -39,7 +39,8 @@ class filePathValidation(BaseModel):
         if not folder.is_file():
             raise FilePathNoExist('FileNoExist',"File setup khong ton tai")
         if folder.suffix.lower() != '.txt':
-            raise setupFormatIncorrect('FileInvalid',f'Setup file phai co dang .txt')
+            raise setupFormatIncorrect('FileInvalid','Setup file phai co dang .txt')
         # Create subfolders if they do not exist
         return _read_file(folder)
+    
 

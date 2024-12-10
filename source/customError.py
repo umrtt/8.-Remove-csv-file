@@ -11,7 +11,7 @@ class BaseException(Exception):
 class NoImageExist(BaseException):
     pass
 
-class ModelFormatIncorrect(BaseException):
+class setupFormatIncorrect(BaseException):
     pass
 
 class FilePathNoExist(BaseException):

@@ -43,9 +43,3 @@ class filePathValidation(BaseModel):
         # Create subfolders if they do not exist
         return _read_file(folder)
 
-
-if __name__ == '__main__':
-    setup_file = r'E:\2.WorkSpace\2.Python\8. Remove csv file\setup.txt'
-    folder_path = r'E:\2.WorkSpace\2.Python\8. Remove csv file\test'
-    a = PathsModel(input_path = folder_path, list_path = setup_file)
-    print(a.list_path)

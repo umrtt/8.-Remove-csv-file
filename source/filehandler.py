@@ -1,4 +1,4 @@
-from source.PathVerify import filePathValidation
+from PathVerify import filePathValidation
 from pathlib import Path
 
 from dataclasses import dataclass
@@ -39,11 +39,12 @@ class fileHandle:
     
     @staticmethod
     def __dict_print(dic: dict):
-        for key, value in dict.items():
+        for key, value in dic.items():
             print(f'Found: {value} {key} ')
 
 
 if __name__ == '__main__':
     setup_file = r'E:\2.WorkSpace\2.Python\8. Remove csv file\setup.txt'
     folder_path = r'E:\2.WorkSpace\2.Python\8. Remove csv file\test'
-    
+    a = fileHandle(file_path=folder_path,list_path=setup_file)
+    a._check_file()
